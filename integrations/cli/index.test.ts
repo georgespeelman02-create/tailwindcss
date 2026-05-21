@@ -565,6 +565,12 @@ describe.each([
         // Only ignore files called ignore-*.html in the actual git repo
         'home/project/.gitignore': 'ignore-*.html',
 
+        'pnpm-workspace.yaml': yaml`
+          #
+          packages:
+            - home/project
+        `,
+
         'home/project/package.json': json`
           {
             "type": "module",
@@ -596,7 +602,7 @@ describe.each([
       installDependencies: false,
     },
     async ({ fs, root, exec }) => {
-      await exec(`pnpm install --ignore-workspace`, {
+      await exec(`pnpm install`, {
         cwd: path.join(root, 'home/project'),
       })
 
