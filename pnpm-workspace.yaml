@@ -18,3 +18,6 @@ catalog:
   lightningcss-linux-x64-gnu: 1.32.0
   lightningcss-linux-x64-musl: 1.32.0
   lightningcss-win32-x64-msvc: 1.32.0
+patchedDependencies:
+  '@parcel/watcher@2.5.1': patches/@parcel__watcher@2.5.1.patch
+  lightningcss@1.32.0: patches/lightningcss@1.32.0.patch
